@@ -138,7 +138,7 @@ function CheckpointStop({
                 alt={`${cp.place} — ${cp.caption}`}
                 fill
                 sizes="300px"
-                className="object-cover"
+                className="object-contain"
                 crossOrigin="anonymous"
               />
             ) : (
