@@ -91,6 +91,7 @@ function Layer({
     />
   )
 }
+// hello everyone
 
 function CheckpointStop({
   cp,
@@ -120,11 +121,6 @@ function CheckpointStop({
         transform: "translateX(-50%)",
       }}
     >
-      <audio id="bg-music" loop>
-  <source src="/photos/bday.mpga" type="audio/mpeg/mpga">
-</audio>
-<button onclick="document.getElementById('bg-music').play()">▶ Play Music</button>
-<button onclick="document.getElementById('bg-music').pause()">⏸ Pause</button>
       {/* floating polaroid */}
       <div
         className="absolute bottom-[15vh] left-1/2 w-[min(74vw,300px)] -translate-x-1/2"
@@ -253,186 +249,190 @@ export function CycleJourney() {
     }
   }, [isPlaying])
   return (
-    <div ref={trackRef} style={{ height: `${(N + 2) * 100}vh` }} className="relative">
-      {/* ✅ ADD THIS: Music player - place it right here at the top */}
-      <audio 
-        ref={audioRef} 
-        loop 
-        preload="auto"
-        className="hidden"
-      >
-        <source src="/photos/bday.mpga" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+  <div ref={trackRef} style={{ height: `${(N + 2) * 100}vh` }} className="relative">
+    {/* Music player */}
+    <audio 
+      ref={audioRef} 
+      loop 
+      preload="auto"
+      className="hidden"
+    >
+      <source src="/photos/bday.mpga" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
 
-      {/* ✅ ADD THIS: Music toggle button - place it here */}
-      <button
-        onClick={toggleMusic}
-        className="fixed bottom-6 right-6 z-50 rounded-full bg-primary px-4 py-3 font-display text-sm font-bold text-primary-foreground shadow-lg hover:scale-105 transition-transform"
-      >
-        {isPlaying ? '🔊 Pause Music' : '🔇 Play Music'}
-      </button>
-        {/* sky */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to bottom, var(--sky-top), var(--sky-bottom) 70%)",
-          }}
-        />
-        {/* sun */}
-        <div
-          aria-hidden
-          className="absolute right-[10%] top-[8%] h-24 w-24 rounded-full"
-          style={{
-            background: "radial-gradient(circle, #fff2b0 0%, #ffe07a 55%, rgba(255,224,122,0) 72%)",
-          }}
-        />
+    {/* Music toggle button */}
+    <button
+      onClick={toggleMusic}
+      className="fixed bottom-6 right-6 z-50 rounded-full bg-primary px-4 py-3 font-display text-sm font-bold text-primary-foreground shadow-lg hover:scale-105 transition-transform"
+    >
+      {isPlaying ? '🔊 Pause Music' : '🔇 Play Music'}
+    </button>
 
-        <Layer bg={cloudBg} travel={T_CLOUD} progress={progress} bottom="60vh" height="18vh" size="auto 100%" opacity={0.95} />
-        <Layer bg={farMtnBg} travel={T_FARMTN} progress={progress} bottom="20vh" height="34vh" size="auto 100%" opacity={0.85} />
-        <Layer bg={nearMtnBg} travel={T_NEARMTN} progress={progress} bottom="18vh" height="40vh" size="auto 100%" />
-        <Layer bg={hillBg} travel={T_HILL} progress={progress} bottom="15vh" height="24vh" size="auto 100%" />
+    {/* Sticky container */}
+    <div className="sticky top-0 h-svh w-full overflow-hidden">
+      {/* sky */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(to bottom, var(--sky-top), var(--sky-bottom) 70%)",
+        }}
+      />
+      
+      {/* sun */}
+      <div
+        aria-hidden
+        className="absolute right-[10%] top-[8%] h-24 w-24 rounded-full"
+        style={{
+          background: "radial-gradient(circle, #fff2b0 0%, #ffe07a 55%, rgba(255,224,122,0) 72%)",
+        }}
+      />
 
-        {/* grass ground */}
-        <div className="absolute inset-x-0 bottom-0 h-[18vh]" style={{ backgroundColor: "var(--hill)" }} />
+      <Layer bg={cloudBg} travel={T_CLOUD} progress={progress} bottom="60vh" height="18vh" size="auto 100%" opacity={0.95} />
+      <Layer bg={farMtnBg} travel={T_FARMTN} progress={progress} bottom="20vh" height="34vh" size="auto 100%" opacity={0.85} />
+      <Layer bg={nearMtnBg} travel={T_NEARMTN} progress={progress} bottom="18vh" height="40vh" size="auto 100%" />
+      <Layer bg={hillBg} travel={T_HILL} progress={progress} bottom="15vh" height="24vh" size="auto 100%" />
 
-        <Layer bg={treeBg} travel={T_TREE} progress={progress} bottom="14vh" height="20vh" size="auto 100%" />
+      {/* grass ground */}
+      <div className="absolute inset-x-0 bottom-0 h-[18vh]" style={{ backgroundColor: "var(--hill)" }} />
 
-        {/* road */}
-        <div className="absolute inset-x-0 bottom-[3vh] h-[9vh]" style={{ backgroundColor: "var(--road)" }}>
-          <div className="absolute left-0 top-1/2 h-1.5 -translate-y-1/2" style={{ width: `${T_GROUND + 220}vw` }}>
-            <div
-              className="h-full"
-              style={{
-                width: "100%",
-                backgroundImage:
-                  "repeating-linear-gradient(90deg, var(--road-line) 0 3vw, transparent 3vw 7vw)",
-                transform: `translate3d(${-progress * T_GROUND}vw,0,0)`,
-                willChange: "transform",
-              }}
-            />
-          </div>
+      <Layer bg={treeBg} travel={T_TREE} progress={progress} bottom="14vh" height="20vh" size="auto 100%" />
+
+      {/* road */}
+      <div className="absolute inset-x-0 bottom-[3vh] h-[9vh]" style={{ backgroundColor: "var(--road)" }}>
+        <div className="absolute left-0 top-1/2 h-1.5 -translate-y-1/2" style={{ width: `${T_GROUND + 220}vw` }}>
+          <div
+            className="h-full"
+            style={{
+              width: "100%",
+              backgroundImage:
+                "repeating-linear-gradient(90deg, var(--road-line) 0 3vw, transparent 3vw 7vw)",
+              transform: `translate3d(${-progress * T_GROUND}vw,0,0)`,
+              willChange: "transform",
+            }}
+          />
         </div>
+      </div>
 
-        {/* checkpoints */}
-        {checkpoints.map((cp, i) => (
-          <CheckpointStop key={cp.place} cp={cp} u={stopU(i)} progress={progress} arrived={arrived && i === nearestIdx} />
-        ))}
+      {/* checkpoints */}
+      {checkpoints.map((cp, i) => (
+        <CheckpointStop key={cp.place} cp={cp} u={stopU(i)} progress={progress} arrived={arrived && i === nearestIdx} />
+      ))}
 
-        {/* the bike */}
-        <div
-          className={`absolute bottom-[4vh] z-20 h-[22vh] w-[26vh] -translate-x-1/2 ${moving ? "animate-bob" : ""}`}
-          style={{ left: `${BIKE_X}vw` }}
-        >
-          <Bike moving={moving} />
-        </div>
+      {/* the bike */}
+      <div
+        className={`absolute bottom-[4vh] z-20 h-[22vh] w-[26vh] -translate-x-1/2 ${moving ? "animate-bob" : ""}`}
+        style={{ left: `${BIKE_X}vw` }}
+      >
+        <Bike moving={moving} />
+      </div>
 
-        {/* HUD */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 p-4 sm:p-5">
-          <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 rounded-full bg-card/85 px-4 py-2 shadow-lg ring-1 ring-border backdrop-blur">
-            <div className="flex items-center gap-2">
-              <BikeMark className="h-5 w-5 text-primary" />
-              <span className="font-display text-sm font-extrabold tabular-nums text-card-foreground sm:text-base">
-                {odo.toLocaleString()} km
-              </span>
-            </div>
-            <div className="min-w-0 text-center">
-              <p className="truncate font-display text-sm font-extrabold text-card-foreground sm:text-base">
-                {current.place}
-              </p>
-              <p className="truncate font-sans text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
-                {current.region}
-              </p>
-            </div>
-            <span className="font-display text-sm font-extrabold tabular-nums text-primary">
-              {Math.round(progress * 100)}%
+      {/* HUD */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-30 p-4 sm:p-5">
+        <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 rounded-full bg-card/85 px-4 py-2 shadow-lg ring-1 ring-border backdrop-blur">
+          <div className="flex items-center gap-2">
+            <BikeMark className="h-5 w-5 text-primary" />
+            <span className="font-display text-sm font-extrabold tabular-nums text-card-foreground sm:text-base">
+              {odo.toLocaleString()} km
             </span>
           </div>
-          {/* progress track with pips */}
-          <div className="mx-auto mt-2 flex max-w-3xl items-center px-2">
-            <div className="relative h-2 w-full rounded-full bg-card/70 ring-1 ring-border">
-              <div
-                className="absolute left-0 top-0 h-full rounded-full bg-primary"
-                style={{ width: `${progress * 100}%` }}
-              />
-              {checkpoints.map((cp, i) => (
-                <span
-                  key={cp.place}
-                  className="absolute top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-card"
-                  style={{
-                    left: `${stopU(i) * 100}%`,
-                    backgroundColor: progress >= stopU(i) - 0.005 ? "var(--secondary)" : "var(--muted-foreground)",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* START overlay */}
-        <div
-          className="absolute inset-0 z-40 flex items-center justify-center bg-background/45 backdrop-blur-sm transition-opacity duration-500"
-          style={{ opacity: started ? 0 : 1, pointerEvents: started ? "none" : "auto" }}
-        >
-          <div className="mx-6 max-w-md rounded-3xl bg-card/95 p-8 text-center shadow-2xl ring-1 ring-border">
-            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-primary">Happy Birthday</p>
-            <h1 className="mt-1 text-balance font-display text-4xl font-extrabold leading-tight text-card-foreground sm:text-5xl">
-              {birthday.name}
-              {birthday.age ? `, ${birthday.age}!` : "!"}
-            </h1>
-            <p className="mt-3 text-pretty font-sans text-base leading-relaxed text-muted-foreground">
-              {birthday.tagline}
+          <div className="min-w-0 text-center">
+            <p className="truncate font-display text-sm font-extrabold text-card-foreground sm:text-base">
+              {current.place}
             </p>
-            <button
-              onClick={nudge}
-              className="pointer-events-auto mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 font-display text-lg font-extrabold text-primary-foreground shadow-lg transition-transform hover:scale-105 active:scale-95"
-            >
-              <BikeMark className="h-6 w-6" /> {birthday.startButton}
-            </button>
-            <p className="mt-4 flex items-center justify-center gap-1 font-sans text-xs font-semibold text-muted-foreground">
-              <span className="animate-bounce-soft" aria-hidden>
-                ↓
-              </span>
-              scroll to pedal forward
+            <p className="truncate font-sans text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+              {current.region}
             </p>
           </div>
+          <span className="font-display text-sm font-extrabold tabular-nums text-primary">
+            {Math.round(progress * 100)}%
+          </span>
         </div>
-
-        {/* FINISH overlay */}
-        <div
-          className="absolute inset-0 z-40 flex items-center justify-center bg-background/55 backdrop-blur-sm transition-opacity duration-500"
-          style={{ opacity: finished ? 1 : 0, pointerEvents: finished ? "auto" : "none" }}
-        >
-          {finished &&
-            Array.from({ length: 18 }).map((_, i) => (
+        {/* progress track with pips */}
+        <div className="mx-auto mt-2 flex max-w-3xl items-center px-2">
+          <div className="relative h-2 w-full rounded-full bg-card/70 ring-1 ring-border">
+            <div
+              className="absolute left-0 top-0 h-full rounded-full bg-primary"
+              style={{ width: `${progress * 100}%` }}
+            />
+            {checkpoints.map((cp, i) => (
               <span
-                key={i}
-                aria-hidden
-                className="absolute top-0 text-2xl"
+                key={cp.place}
+                className="absolute top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-card"
                 style={{
-                  left: `${(i * 5.5 + 4) % 100}%`,
-                  animation: `leafFall ${4 + (i % 5)}s linear ${(i % 7) * 0.4}s infinite`,
+                  left: `${stopU(i) * 100}%`,
+                  backgroundColor: progress >= stopU(i) - 0.005 ? "var(--secondary)" : "var(--muted-foreground)",
                 }}
-              >
-                {i % 2 ? "🍁" : "🎈"}
-              </span>
+              />
             ))}
-          <div className="mx-6 max-w-lg rounded-3xl bg-card/95 p-8 text-center shadow-2xl ring-1 ring-border">
-            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-secondary">
-              {maxKm.toLocaleString()} km · Coast to coast
-            </p>
-            <h2 className="mt-1 text-balance font-display text-4xl font-extrabold text-card-foreground sm:text-5xl">
-              {birthday.finishTitle}
-            </h2>
-            <p className="mt-3 text-pretty font-sans text-base leading-relaxed text-muted-foreground">
-              {birthday.finishMessage}
-            </p>
-            <p className="mt-5 whitespace-pre-line font-display text-lg font-bold text-primary">
-              {birthday.signature}
-            </p>
           </div>
         </div>
       </div>
-    </div>
-  )
+
+      {/* START overlay */}
+      <div
+        className="absolute inset-0 z-40 flex items-center justify-center bg-background/45 backdrop-blur-sm transition-opacity duration-500"
+        style={{ opacity: started ? 0 : 1, pointerEvents: started ? "none" : "auto" }}
+      >
+        <div className="mx-6 max-w-md rounded-3xl bg-card/95 p-8 text-center shadow-2xl ring-1 ring-border">
+          <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-primary">Happy Birthday</p>
+          <h1 className="mt-1 text-balance font-display text-4xl font-extrabold leading-tight text-card-foreground sm:text-5xl">
+            {birthday.name}
+            {birthday.age ? `, ${birthday.age}!` : "!"}
+          </h1>
+          <p className="mt-3 text-pretty font-sans text-base leading-relaxed text-muted-foreground">
+            {birthday.tagline}
+          </p>
+          <button
+            onClick={nudge}
+            className="pointer-events-auto mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 font-display text-lg font-extrabold text-primary-foreground shadow-lg transition-transform hover:scale-105 active:scale-95"
+          >
+            <BikeMark className="h-6 w-6" /> {birthday.startButton}
+          </button>
+          <p className="mt-4 flex items-center justify-center gap-1 font-sans text-xs font-semibold text-muted-foreground">
+            <span className="animate-bounce-soft" aria-hidden>
+              ↓
+            </span>
+            scroll to pedal forward
+          </p>
+        </div>
+      </div>
+
+      {/* FINISH overlay */}
+      <div
+        className="absolute inset-0 z-40 flex items-center justify-center bg-background/55 backdrop-blur-sm transition-opacity duration-500"
+        style={{ opacity: finished ? 1 : 0, pointerEvents: finished ? "auto" : "none" }}
+      >
+        {finished &&
+          Array.from({ length: 18 }).map((_, i) => (
+            <span
+              key={i}
+              aria-hidden
+              className="absolute top-0 text-2xl"
+              style={{
+                left: `${(i * 5.5 + 4) % 100}%`,
+                animation: `leafFall ${4 + (i % 5)}s linear ${(i % 7) * 0.4}s infinite`,
+              }}
+            >
+              {i % 2 ? "🍁" : "🎈"}
+            </span>
+          ))}
+        <div className="mx-6 max-w-lg rounded-3xl bg-card/95 p-8 text-center shadow-2xl ring-1 ring-border">
+          <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-secondary">
+            {maxKm.toLocaleString()} km · Coast to coast
+          </p>
+          <h2 className="mt-1 text-balance font-display text-4xl font-extrabold text-card-foreground sm:text-5xl">
+            {birthday.finishTitle}
+          </h2>
+          <p className="mt-3 text-pretty font-sans text-base leading-relaxed text-muted-foreground">
+            {birthday.finishMessage}
+          </p>
+          <p className="mt-5 whitespace-pre-line font-display text-lg font-bold text-primary">
+            {birthday.signature}
+          </p>
+        </div>
+      </div>
+    </div> {/* ← Close the sticky div */}
+  </div> {/* ← Close the outer div */}
+)
 }
