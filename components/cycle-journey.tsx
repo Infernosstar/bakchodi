@@ -432,6 +432,6 @@ export function CycleJourney() {
           </p>
           </div>
       </div>    
-    </div>    
-  )        
-}
+    </div>
+  </div>
+  )}
