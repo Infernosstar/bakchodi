@@ -193,9 +193,12 @@ function CheckpointStop({
 }
 
 export function CycleJourney() {
+  // const trackRef = useRef<HTMLDivElement>(null)
+  // const [progress, setProgress] = useState(0)
   const trackRef = useRef<HTMLDivElement>(null)
   const [progress, setProgress] = useState(0)
-
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement>(null)
   useEffect(() => {
     let raf = 0
     const onScroll = () => {
@@ -239,10 +242,36 @@ export function CycleJourney() {
   const started = progress > 0.015
   const finished = progress > 0.985
   const moving = started && !finished
-
+  const toggleMusic = useCallback(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }, [isPlaying])
   return (
     <div ref={trackRef} style={{ height: `${(N + 2) * 100}vh` }} className="relative">
-      <div className="sticky top-0 h-svh w-full overflow-hidden">
+      {/* ✅ ADD THIS: Music player - place it right here at the top */}
+      <audio 
+        ref={audioRef} 
+        loop 
+        preload="auto"
+        className="hidden"
+      >
+        <source src="/photos/bday.mpga" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      {/* ✅ ADD THIS: Music toggle button - place it here */}
+      <button
+        onClick={toggleMusic}
+        className="fixed bottom-6 right-6 z-50 rounded-full bg-primary px-4 py-3 font-display text-sm font-bold text-primary-foreground shadow-lg hover:scale-105 transition-transform"
+      >
+        {isPlaying ? '🔊 Pause Music' : '🔇 Play Music'}
+      </button>
         {/* sky */}
         <div
           className="absolute inset-0"
