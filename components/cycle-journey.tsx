@@ -435,4 +435,4 @@ export function CycleJourney() {
     </div> {/* ← Close the sticky div */}
 
 )
-}
+
