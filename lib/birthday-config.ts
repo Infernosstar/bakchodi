@@ -37,7 +37,7 @@ export const checkpoints: Checkpoint[] = [
     km: 0,
     caption: "janam le liya, ab to chalte h kuchu puchu",
     src: "/photos/photo1.jpg",
-  }
+  },
   {
     place: "some random function",
     region: "cutie world",
