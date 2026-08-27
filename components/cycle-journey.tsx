@@ -433,6 +433,6 @@ export function CycleJourney() {
         </div>
       </div>
     </div> {/* ← Close the sticky div */}
-  </div> {/* ← Close the outer div */}
+
 )
 }
