@@ -430,8 +430,8 @@ export function CycleJourney() {
           <p className="mt-5 whitespace-pre-line font-display text-lg font-bold text-primary">
             {birthday.signature}
           </p>
-          </div>  {/* Close FINISH overlay div */}
-      </div>    {/* Close sticky div */}
-    </div>      {/* Close outer div with ref={trackRef} */}
-  )            {/* Close the return statement */}
-}             {/* Close the function */}
+          </div>
+      </div>    
+    </div>    
+  )        
+}
