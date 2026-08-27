@@ -4,18 +4,18 @@
 
 export const birthday = {
   // Her name and (optional) age. Leave age as null to hide it.
-  name: "Aanya",
-  age: null as number | null,
+  name: "Kuchu Puchu",
+  age: 85 as number | null,
 
   // Text on the start screen
-  tagline: "Hop on — we're pedalling across life to celebrate you!",
+  tagline: "Bhaad m Chalte h kuchu puchu",
   startButton: "Start the ride",
 
   // Text on the finish screen
-  finishTitle: "You made it!",
+  finishTitle: "pahunch gaye kya kuchu puchu",
   finishMessage:
-    "One big beautiful ride, one wonderful you. Thanks for every mile we've shared — happy birthday!",
-  signature: "With all my love,\n— Your friend",
+    "Congratulations! You made it to the end of the ride ab to ladki patwaa de",
+  signature: "With all my love,\n— Your handsome friend",
 }
 
 // Each checkpoint = one Canadian stop = one photo.
@@ -32,66 +32,73 @@ export type Checkpoint = {
 
 export const checkpoints: Checkpoint[] = [
   {
-    place: "Start point",
-    region: "Where it all began",
+    place: "Pali",
+    region: "Rajasthan",
     km: 0,
-    caption: "Where the ride begins — wheels down by the Pacific.",
-    src: "/photos/01-newborn.jpg",
-  },
+    caption: "janam le liya, ab to chalte h kuchu puchu",
+    src: "/photos/photo1.jpg",
+  }
   {
-    place: "Anya palace",
-    region: "British Columbia",
+    place: "some random function",
+    region: "cutie world",
     km: 125,
-    caption: "princess of the house, queen of our hearts.",
-    src: "/photos/02-toddler.jpg",
+    caption: "ole le le kuchu puchu",
+    src: "/photos/photo2.jpg",
   },
   {
-    place: "pinky lake",
-    region: "Alberta",
+    place: "Barbie world",
+    region: "south",
     km: 560,
-    caption: "pink dress, pink lake, and a pink sunset.",
-    src: "/photos/03-pink-dress.jpg",
+    caption: "I am a barbie girl in my south indian baddie world",
+    src: "/photos/photo3.jpg",
   },
   {
-    place: "Palace",
-    region: "Alberta",
+    place: "lack of heart",
+    region: "somewhere in the world",
     km: 620,
-    caption: "birthday cake, candles, and a wish for the future.",
-    src: "/photos/04-birthday-cake.jpg",
+    caption: "waah kya muskuraahat hai kuchu puchu",
+    src: "/photos/photo4.jpg",
   },
   {
-    place: "Strawberry Island",
-    region: "Saskatchewan",
+    place: "hotel",
+    region: "somewhere in India",
     km: 1300,
-    caption: "eat strawberrys, make strawberry memories, and share strawberry smiles.",
-    src: "/photos/strawberry.jpg",
+    caption: "competition comes , but kuchu puchu is the best and worst",
+    src: "/photos/photo5.jpg",
   },
   {
-    place: "vampire palace",
+    place: "Chilli Snow world",
     region: "Manitoba",
     km: 1900,
-    caption: "Spooky creatures, scary stories, and a night of frightful fun.",
-    src: "/photos/vampire.jpg",
+    caption: "In the snow cold but hotter like chilli",
+    src: "/photos/photo6.jpg",
   },
   {
-    place: "Aazad Hind",
+    place: "Random College",
     region: "Ontario",
     km: 3200,
-    caption: "Aazad Hind, a place of freedom, courage, and unity.",
-    src: "/photos/independent.jpg",
+    caption: "College life is the best life, but kuchu puchu could not live it fully",
+    src: "/photos/photo7.jpg",
   },
   {
-    place: "Aanya palace",
-    region: "Ontario",
+    place: "Cameraman",
+    region: "somewhere in tamilnadu",
     km: 3330,
-    caption: "I am journalist aanya with cameraman aanya jain",
-    src: "/photos/cameraman.jpg",
+    caption: "Baba baba black sheep",
+    src: "/photos/photo8.jpg",
   },
   {
-    place: "The final stop",
-    region: "Québec",
+    place: "The second final stop",
+    region: "Somwhere in bengaluru",
     km: 3800,
     caption: "THe current final biproduct of the journey, but the memories will last forever.",
+    src: "/photos/photo9.jpg",
+  },
+  {
+    place: "Biodata",
+    region: "Muheheheheheheheheheehheeheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheheh",
+    km: 4000,
+    caption: "Kuchu puchu tera biodata to ban gyaa h , ab mere liye ek pyaari si ladki dhoondh de",
     src: "/photos/final.jpg",
   },
 ]

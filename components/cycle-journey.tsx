@@ -120,6 +120,11 @@ function CheckpointStop({
         transform: "translateX(-50%)",
       }}
     >
+      <audio id="bg-music" loop>
+  <source src="/photos/bday.mpga" type="audio/mpeg/mpga">
+</audio>
+<button onclick="document.getElementById('bg-music').play()">▶ Play Music</button>
+<button onclick="document.getElementById('bg-music').pause()">⏸ Pause</button>
       {/* floating polaroid */}
       <div
         className="absolute bottom-[15vh] left-1/2 w-[min(74vw,300px)] -translate-x-1/2"
